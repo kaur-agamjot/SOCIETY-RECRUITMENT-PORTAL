@@ -21,6 +21,6 @@ CSS: I have added background colour, standard margins and borders around the box
 
 
 
-PS: I am very much interested in learning web development and I am looking forward to learn it and create something cool! :)
+PS: I am very much interested in learning web development and I am looking forward to dive deep into it and create something cool! :)
 
 
