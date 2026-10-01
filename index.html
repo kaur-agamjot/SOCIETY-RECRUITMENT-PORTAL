@@ -9,92 +9,89 @@
 <body>
 
     <header>
-        <h1>NSUT Recruitment Portal</h1>
+        <div class="header-content">
+            <h1>NSUT Recruitment Portal</h1>
+            <div class="header-btns">
+                <button id="quiz-btn" class="alt-btn">Find My Society</button>
+                <button id="theme-btn" class="alt-btn">Dark Mode</button>
+            </div>
+        </div>
     </header>
 
     <main>
         
         <section class="welcome-box">
             <h2>Explore College Societies</h2>
-            <p>Find your campus community, choose open developer roles, and apply below.</p>
+            <p>Find your campus community, choose open roles, and submit your application.</p>
         </section>
 
-        <section class="dashboard-container">
-            
-            <div class="society-card">
-                <h3>GDG NSUT</h3>
-                <span class="category-badge tech-color">Technical</span>
-                <p>Connecting student developers to Google technologies and industry standards.</p>
+        <section class="search-section">
+            <input type="text" id="search-input" placeholder="Search by name or keyword...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="All">All</button>
+                <button class="filter-btn" data-category="Technical">Technical</button>
+                <button class="filter-btn" data-category="Cultural">Cultural</button>
+                <button class="filter-btn" data-category="Sports">Sports</button>
+                <button class="filter-btn" data-category="Literary">Literary</button>
             </div>
-
-            <div class="society-card">
-                <h3>DevComm</h3>
-                <span class="category-badge tech-color">Technical</span>
-                <p>The official software development society of NSUT, focusing on deep engineering structures.</p>
-            </div>
-
-            <div class="society-card">
-                <h3>Ashwamedh</h3>
-                <span class="category-badge cultural-color">Cultural</span>
-                <p>The premier dramatics society specializing in street plays and stage acts.</p>
-            </div>
-
-            <div class="society-card">
-                <h3>Crescendo</h3>
-                <span class="category-badge cultural-color">Cultural</span>
-                <p>The musical heartbeat of the campus, bringing vocalists and instrumentalists together.</p>
-            </div>
-
-            <div class="society-card">
-                <h3>NSUT Sports Cell</h3>
-                <span class="category-badge sports-color">Sports</span>
-                <p>Fostering athletic resilience, hosting tournaments, and managing sports drafts.</p>
-            </div>
-
-            <div class="society-card">
-                <h3>Crosslinks DebSoc</h3>
-                <span class="category-badge literary-color">Literary</span>
-                <p>Refining public speaking, critical discourse, and conventional debating formats.</p>
-            </div>
-
         </section>
 
-        <section class="application-section">
+        <section id="dashboard-container" class="dashboard-container">
+        </section>
+
+        <div id="empty-state" class="empty-state hidden">
+            <h3>No societies found</h3>
+            <p>Try searching for something else or change the category filter.</p>
+        </div>
+
+        <section class="application-section" id="apply-section">
             <div class="form-wrapper">
                 <h3>Submit Your Application</h3>
-                <form>
+                <form id="app-form" novalidate>
                     <div class="form-control">
-                        <label>Full Name</label>
-                        <input type="text" placeholder="Enter your full name" required>
+                        <label for="user-name">Full Name</label>
+                        <input type="text" id="user-name" placeholder="Enter your full name">
+                        <span class="error-msg" id="name-error"></span>
                     </div>
 
                     <div class="form-control">
-                        <label>Year</label>
-                        <select>
-                            <option>1st Year</option>
+                        <label for="user-year">Year</label>
+                        <select id="user-year">
+                            <option value="">Select Year</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
                         </select>
+                        <span class="error-msg" id="year-error"></span>
                     </div>
 
                     <div class="form-control">
-                        <label>Branch Code</label>
-                        <input type="text" placeholder="e.g. COE, IT, ECE" required>
+                        <label for="user-branch">Branch Code</label>
+                        <input type="text" id="user-branch" placeholder="e.g. COE, IT, ECE">
+                        <span class="error-msg" id="branch-error"></span>
                     </div>
 
                     <div class="form-control">
-                        <label>Target Campus Society</label>
-                        <select>
-                            <option>GDG NSUT</option>
-                            <option>DevComm</option>
-                            <option>Ashwamedh</option>
-                            <option>Crescendo</option>
-                            <option>NSUT Sports Cell</option>
-                            <option>Crosslinks(The face of NSUT)</option>
+                        <label for="target-society">Target Campus Society</label>
+                        <select id="target-society">
+                            <option value="">Select Society</option>
                         </select>
+                        <span class="error-msg" id="society-error"></span>
                     </div>
 
                     <div class="form-control">
-                        <label>Why do you want to join this society?</label>
-                        <textarea rows="4" placeholder="Tell us about your interests..." required></textarea>
+                        <label for="target-role">Target Open Role</label>
+                        <select id="target-role">
+                            <option value="">Select Role</option>
+                        </select>
+                        <span class="error-msg" id="role-error"></span>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="user-why">Why do you want to join this society?</label>
+                        <textarea id="user-why" rows="4" placeholder="Tell us about your interests and skills..."></textarea>
+                        <span class="error-msg" id="why-error"></span>
                     </div>
 
                     <button type="submit" class="submit-btn">Submit Application</button>
@@ -104,5 +101,37 @@
 
     </main>
 
+    <div id="detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn" id="close-detail">&times;</button>
+            <div id="detail-body"></div>
+        </div>
+    </div>
+
+    <div id="quiz-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn" id="close-quiz">&times;</button>
+            <h3>Society Match Quiz</h3>
+            <p style="margin-bottom: 15px;">What type of activities interest you the most?</p>
+            <div class="quiz-options">
+                <button class="quiz-option" data-cat="Technical">Coding, Web Dev and Technology</button>
+                <button class="quiz-option" data-cat="Cultural">Drama, Music and Stage Performing</button>
+                <button class="quiz-option" data-cat="Sports">Fitness, Games and Athletics</button>
+                <button class="quiz-option" data-cat="Literary">Public Speaking, Debating and Writing</button>
+            </div>
+            <div id="quiz-result" class="quiz-result hidden"></div>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="modal hidden">
+        <div class="modal-content text-center">
+            <div class="check-icon">OK</div>
+            <h3>Application Received!</h3>
+            <div id="confirm-details"></div>
+            <button id="close-confirm" class="submit-btn" style="margin-top: 15px;">Done</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
