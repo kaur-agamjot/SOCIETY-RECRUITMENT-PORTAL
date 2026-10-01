@@ -11,7 +11,12 @@ My website uses basic html and a little bit of css that I learnt not quite long 
 
 -Different color of blocks for Technical,Cultural,Sports and Literary Society
 
+-I added a javascript file containing json data of the societies
+
+-I added a javascript file named app.js handling all the backend including the forms
+
 -And lastly a simple application form type thingy for input of details
+
 
 
 ## CODE I USED
