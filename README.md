@@ -3,6 +3,8 @@
 A very simple and basic website which contains description of 6 societies and an application window.
 My website uses basic html and a little bit of css that I learnt not quite long ago. 
 
+The link to view the webpage - https://society-application-portal-2s6777f9a-starswork.vercel.app/
+
 ## WHAT IT INCLUDES
 
 -A top header for the heading
