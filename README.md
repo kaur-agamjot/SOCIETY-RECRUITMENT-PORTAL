@@ -2,10 +2,9 @@
 
 A very simple and basic website which contains description of 6 societies and an application window.
 My website uses basic html and a little bit of css that I learnt not quite long ago. 
+This project is not complete, I am still developing it so kindly come back later :)
 
-The link to view the webpage - https://society-application-portal-2s6777f9a-starswork.vercel.app/
-
-## WHAT IT INCLUDES
+## WHAT IT INCLUDES (Until now)
 
 -A top header for the heading
 
@@ -22,7 +21,7 @@ The link to view the webpage - https://society-application-portal-2s6777f9a-star
 
 
 ## CODE I USED
-HTML: I learnt it through youtube and Gemini, used headers, paragraphs, select tags and a form with input boxes.
+HTML: I learnt it through youtube and gemini, used headers, paragraphs, select tags and a form with input boxes.
 
 CSS: I have added background colour, standard margins and borders around the boxes to make the website neat and clean.
 
